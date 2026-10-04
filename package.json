@@ -1,0 +1,17 @@
+{
+  "name": "marching-squares",
+  "version": "0.1.0",
+  "description": "Extracts contour line segments from a two-dimensional scalar grid for isoline rendering.",
+  "type": "module",
+  "main": "src/index.js",
+  "exports": "./src/index.js",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "test": "node --test"
+  },
+  "keywords": [],
+  "license": "ISC",
+  "dependencies": {}
+}
