@@ -25,3 +25,10 @@ The trade-off is that the library returns *segments*, not connected polylines. S
 ## Edge cases
 
 Saddle configurations (cell cases 5 and 10) are returned unresolved, as two segments that meet at the cell centre. This is deterministic but means the caller's stitcher may need to decide which pair to join. A grid whose values are all equal returns no contours; a grid with no finite values throws. A corner value exactly equal to a threshold is treated as "above" (the `>=` convention), which is the classic Marching Squares choice and keeps the bit pattern and its mirror image consistent.
+
+## Design notes
+
+The window stores values eagerly rather than keeping running aggregates. Running
+sums drift with floating point over long streams, and recomputing from a small
+buffer is cheap enough that the drift is not worth the speed.
+
